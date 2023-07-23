@@ -33,6 +33,7 @@ class _CalculatorState extends State<Calculator> {
     } else {
       return Colors.white;
     }
+    print('hello');
   }
 
   Object isOperatorTextColor(String s) {
