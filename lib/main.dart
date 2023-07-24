@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: Colors.purple.shade100,
         body: Calculator(),
@@ -48,17 +49,17 @@ class _CalculatorState extends State<Calculator> {
     'DEL',
     '%',
     '/',
-    '9',
-    '8',
     '7',
+    '8',
+    '9',
     '*',
-    '6',
-    '5',
     '4',
+    '5',
+    '6',
     '-',
-    '3',
-    '2',
     '1',
+    '2',
+    '3',
     '+',
     '0',
     '.',
@@ -154,11 +155,16 @@ class _CalculatorState extends State<Calculator> {
                         });
                   }
                   // for =
-                  else if (index == buttonText.length - 1) {
+                  else if (index == buttonText.length - 1 ||
+                      index == buttonText.length - 2) {
                     return buttonCard(
-                        btncolor: Colors.purple,
+                        btncolor: index == buttonText.length - 1
+                            ? Colors.purple
+                            : Colors.white,
                         text: buttonText[index],
-                        textColor: Colors.white,
+                        textColor: index == buttonText.length - 1
+                            ? Colors.white
+                            : Colors.black,
                         ontap: () {
                           // onTap(buttonText[index]);
                           setState(() {
